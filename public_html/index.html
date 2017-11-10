@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+		<script src="framework/jquery.min.js" type="text/javascript"></script>
+		<link href="framework/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
+		<script src="framework/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+		<link href="framework/index.css" rel="stylesheet" type="text/css"/>
+		<link href="framework/jquery.mobile.theme-1.4.5.css" rel="stylesheet" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+		<div id="home" data-role="page" data-theme="a">
+			<div class="ui-content"><img class="img" src="framework/images/kasi2.png" alt=""/>
+			<button data-icon="user" data-iconpos="right" class="ui-nodisc-icon ui-alt-icon" >My Care</button>
+			<button data-icon="search" data-iconpos="right" class="ui-alt-icon ui-nodisc-icon">Search For Facilities</button>
+			<button data-icon="heart" data-iconpos="right" class="ui-alt-icon ui-nodisc-icon">Panic</button>
+			<button data-icon="info" data-iconpos="right" class="ui-alt-icon ui-nodisc-icon">Book An Appointment</button>
+			<div data-role='collapsible' data-theme='b'>
+				<h4>Quick Info</h4>
+				<p>Name: Bafana Zulu</p>
+				<p>Meds: Adderall</p>
+				<p>Chronic Conditions: Asthma </p>
+			</div>
+			</div>
+		</div>
+		<div id="mycare" data-role="page">
+			<div class="ui-content"><img src="framework/images/kasi2.png" class="img" alt=""/>
+				<button data-icon="grid" data-iconpos="right" class="ui-nodisc-icon ui-alt-icon"  >My Records </button>
+				<button data-icon="info" data-iconpos="right" class="ui-nodisc-icon ui-alt-icon">Medication Schedules</button>
+				<button data-icon="action" data-iconpos="right" class="ui-nodisc-icon ui-alt-icon">Profile Management</button>
+			</div>
+		</div>
+		<div id="rec" data-role="page">
+			<div class="ui-content"><img src="framework/images/kasi2.png" class="img" alt=""/>
+				<div data-role="collapsible" data-theme="b" 
+						 data-collapsed-icon="carat-r" data-expanded-icon="carat-d">
+					<h4>Record Key</h4>
+					<img class="img" src="framework/images/KasiTest.png" alt="">
+				</div>
+				<div data-role="popup" id="pumenu" data-theme="b">
+	        <ul data-role="listview" data-inset="true" style="min-width:210px;" >
+						<li data-role="list-divider">Choose an action</li>
+            <li><a href="#" class="ui-btn">Scan</a></li>
+            <li>
+							<div data-role="collapsible">
+								<h4>Add</h4>
+								<form>
+									<input placeholder="Incident">
+									<input type="date">
+									<input placeholder="Dr's Signature">
+									<button> Add </button>
+								</form>
+							</div>
+						</li>
+	        </ul>
+				</div>
+				<div ></div>
+				<div class="ui-nodisc-icon ">
+					<!--<a href="#popupMenu" data-rel="popup" data-transition="slideup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-gear ui-btn-icon-left ui-btn-a">Actions...</a>-->
+					
+					<a href="#pumenu" data-rel="popup" data-transition="slideup" class="ui-btn ui-corner-all ui-icon-plus  ui-alt-icon ui-btn-icon-notext  ui-btn-inline"  ></a>
+					<a  class="ui-btn ui-corner-all ui-icon-refresh ui-alt-icon ui-btn-icon-notext ui-btn-inline"  ></a>
+					<a  class="ui-btn ui-corner-all ui-icon-cloud ui-alt-icon ui-btn-icon-notext ui-btn-inline"  ></a>
+				</div>
+				<div data-role="collapsibleset" data-mini="true">
+					<div data-role="collapsible">
+						<h4><span class="title">Check In </span><span class="date">04/07/2017</span></h4>
+						<p class="data ui-bar">Small Fever</p>
+						<a class="location ui-btn" data-icon="grid">Steve Biko General Hospital</a>
+					</div>
+					<div data-role="collapsible">
+						<h4><span class="title">Check In </span><span class="date">18/03/2014</span></h4>
+						<p class="data">Cracked Rib</p>
+					</div>
+					<div data-role="collapsible">
+						<h4><span class="title">Check In </span><span class="date">31/01/2012</span></h4>
+						<p class="data">Panic Attack</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBhTwbxRw2jpjFHA3YwnVq3U3Vh5kscwwY",
+    authDomain: "kasicare.firebaseapp.com",
+    databaseURL: "https://kasicare.firebaseio.com",
+    projectId: "kasicare",
+    storageBucket: "",
+    messagingSenderId: "232449630041"
+  };
+  firebase.initializeApp(config);
+</script>
+		<script>
+			var btns;
+			$(document).ready(function(){
+				btns = {
+					mycare:document.querySelector('ui-icon-user'),
+					myrec:document.querySelector('ui-icon-grid'),
+					click:function (a){
+						//console.log(a.currentTarget);
+						btns.btnBehaviour(a.currentTarget);
+					},
+					btnBehaviour:function(btn){
+						if($(btn).hasClass("ui-icon-user"))
+							$.mobile.changePage('#mycare');
+						if($(btn).hasClass("ui-icon-grid"))
+							$.mobile.changePage('#rec');
+						if ($(btn).hasClass("act"))
+						{}
+					},
+					actionFilter:function (btn){
+						return btn;
+					}
+				};
+				$('button').click(btns.click);
+			});
+			
+			
+		</script>
+		
+  </body>
+</html>
