@@ -21,7 +21,7 @@ and open the template in the editor.
 			<button data-icon="user" data-iconpos="right" class="ui-nodisc-icon ui-alt-icon" >My Care</button>
 			<button data-icon="search" data-iconpos="right" class="ui-alt-icon ui-nodisc-icon">Search For Facilities</button>
 			<button data-icon="heart" data-iconpos="right" class="ui-alt-icon ui-nodisc-icon">Panic</button>
-			<button data-icon="info" data-iconpos="right" class="ui-alt-icon ui-nodisc-icon">Book An Appointment</button>
+			<button data-icon="action" data-iconpos="right" class="ui-alt-icon ui-nodisc-icon">Book An Appointment</button>
 			<div data-role='collapsible' data-theme='b'>
 				<h4>Quick Info</h4>
 				<p>Name: Bafana Zulu</p>
@@ -120,21 +120,54 @@ and open the template in the editor.
 				</div>
 				<div data-role="collapsibleset" data-mini="true">
 					<div data-role="collapsible">
-						<h4><span class="title">Check In </span><span class="date">04/07/2017</span></h4>
-						<p class="data ui-bar">Small Fever</p>
-						<a class="location ui-btn" data-icon="grid">Steve Biko General Hospital</a>
+						<h4><span class="title">Adderall  </span><span class="time"> 2:00pm</span></h4>
+						<a class="location ui-btn" data-icon="grid">Export To Alarm</a>
 					</div>
 					<div data-role="collapsible">
-						<h4><span class="title">Check In </span><span class="date">18/03/2014</span></h4>
-						<p class="data">Cracked Rib</p>
+						<h4><span class="title">Salbutamol </span><span class="time">18/03/2014</span></h4>
+            <a class="location ui-btn" data-icon="grid">Completed Course</a>
 					</div>
 					<div data-role="collapsible">
-						<h4><span class="title">Check In </span><span class="date">31/01/2012</span></h4>
-						<p class="data">Panic Attack</p>
+						<h4><span class="title">Allegex</span><span class="time"></span></h4>
+						<p class="data">Completed Course</p>
 					</div>
 				</div>
 			</div>
 		</div>
+    <div id="prof" data-role="page">
+      <div class="ui-content"><img class="img" src="framework/images/kasi2.png" alt=""/>
+        <div class="ui-header ui-title">Manage Profiles</div>
+        <a href="#pmenu" data-rel="popup" data-transition="slideup" class="ui-btn ui-corner-all ui-icon-plus  ui-alt-icon ui-btn-icon-notext  ui-btn-inline"  ></a>
+        <div data-role="collapsibleset">
+          <div data-role='collapsible' data-theme='b'>
+            <h4>Summary <span class="fn">Bafana</span></h4>
+            <p>Name: Bafana Zulu</p>
+            <p>Prescriptions: Adderall</p>
+            <p>Chronic Conditions: Asthma </p>
+            <a class="ui-btn ">Edit</a>
+          </div>
+          <div data-role='collapsible' data-theme='a'>
+            <h4>Summary <span class="fn">Basetsana</span></h4>
+            <p>Name: Basetsana Zulu</p>
+            <p>Prescriptions: Adderall</p>
+            <p>Chronic Conditions: Asthma </p>
+            <a class="ui-btn ">Edit</a>
+          </div>
+          <div data-role='collapsible' data-theme='a'>
+            <h4>Summary <span class="fn">Thoriso</span></h4>
+            <p>Name: Thoriso Zulu</p>
+            <p>Prescriptions: Adderall</p>
+            <p>Chronic Conditions: Asthma </p>
+            <a class="ui-btn ">Edit</a>
+          </div>
+        </div>
+			</div>
+    </div>
+    <div id="fac" data-role="page">
+      <div class="ui-content">
+        <img class="img" src="framework/images/kasi2.png" alt=""/>
+      </div>
+    </div>
 <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
 <script>
   // Initialize Firebase
@@ -166,6 +199,12 @@ and open the template in the editor.
 						if($(btn).hasClass("ui-icon-info") 
 										&& location.hash === "#mycare")
 							$.mobile.changePage('#sched');
+            if($(btn).hasClass("ui-icon-action") 
+										&& location.hash === "#mycare")
+              $.mobile.changePage('#prof');
+            if($(btn).hasClass("ui-icon-action") 
+										&& location.hash === "#home")
+              $.mobile.changePage('#fac');
 						if ($(btn).hasClass("act"))
 						{}
 					},
