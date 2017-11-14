@@ -86,7 +86,55 @@ and open the template in the editor.
 				</div>
 			</div>
 		</div>
-		
+		<div id="sched" data-role="page">
+			<div class="ui-content"><img src="framework/images/kasi2.png" class="img" alt=""/>
+				<div data-role="collapsible" data-theme="b" 
+						 data-collapsed-icon="carat-r" data-expanded-icon="carat-d">
+					<h4>Prescriptions Key</h4>
+					<img class="img" src="framework/images/KasiTest.png" alt="">
+				</div>
+				<div data-role="popup" id="smenu" data-theme="b">
+	        <ul data-role="listview" data-inset="true" style="min-width:210px;" >
+            <li data-role="list-divider"><span>Add Prescription</span></li>
+            <li><a href="#" class="ui-btn">Scan</a> </li>
+            <li>
+							<div data-role="collapsible">
+								<h4>Add</h4>
+								<form>
+									<input placeholder="Name">
+									<input type="date">
+									<input placeholder="Dr's Signature">
+									<button> Add </button>
+								</form>
+							</div>
+						</li>
+	        </ul>
+				</div>
+				<div ></div>
+				<div class="ui-nodisc-icon ">
+					<!--<a href="#popupMenu" data-rel="popup" data-transition="slideup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-gear ui-btn-icon-left ui-btn-a">Actions...</a>-->
+					
+					<a href="#smenu" data-rel="popup" data-transition="slideup" class="ui-btn ui-corner-all ui-icon-plus  ui-alt-icon ui-btn-icon-notext  ui-btn-inline"  ></a>
+					<a  class="ui-btn ui-corner-all ui-icon-refresh ui-alt-icon ui-btn-icon-notext ui-btn-inline"  ></a>
+					<a  class="ui-btn ui-corner-all ui-icon-cloud ui-alt-icon ui-btn-icon-notext ui-btn-inline"  ></a>
+				</div>
+				<div data-role="collapsibleset" data-mini="true">
+					<div data-role="collapsible">
+						<h4><span class="title">Check In </span><span class="date">04/07/2017</span></h4>
+						<p class="data ui-bar">Small Fever</p>
+						<a class="location ui-btn" data-icon="grid">Steve Biko General Hospital</a>
+					</div>
+					<div data-role="collapsible">
+						<h4><span class="title">Check In </span><span class="date">18/03/2014</span></h4>
+						<p class="data">Cracked Rib</p>
+					</div>
+					<div data-role="collapsible">
+						<h4><span class="title">Check In </span><span class="date">31/01/2012</span></h4>
+						<p class="data">Panic Attack</p>
+					</div>
+				</div>
+			</div>
+		</div>
 <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
 <script>
   // Initialize Firebase
@@ -115,6 +163,9 @@ and open the template in the editor.
 							$.mobile.changePage('#mycare');
 						if($(btn).hasClass("ui-icon-grid"))
 							$.mobile.changePage('#rec');
+						if($(btn).hasClass("ui-icon-info") 
+										&& location.hash === "#mycare")
+							$.mobile.changePage('#sched');
 						if ($(btn).hasClass("act"))
 						{}
 					},
