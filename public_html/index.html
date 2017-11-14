@@ -185,8 +185,6 @@ and open the template in the editor.
 			var btns;
 			$(document).ready(function(){
 				btns = {
-					mycare:document.querySelector('ui-icon-user'),
-					myrec:document.querySelector('ui-icon-grid'),
 					click:function (a){
 						//console.log(a.currentTarget);
 						btns.btnBehaviour(a.currentTarget);
@@ -202,8 +200,8 @@ and open the template in the editor.
             if($(btn).hasClass("ui-icon-action") 
 										&& location.hash === "#mycare")
               $.mobile.changePage('#prof');
-            if($(btn).hasClass("ui-icon-action") 
-										&& location.hash === "#home")
+            if($(btn).hasClass("ui-icon-search") 
+										&& (location.hash === "#home" || location.hash===""))
               $.mobile.changePage('#fac');
 						if ($(btn).hasClass("act"))
 						{}
