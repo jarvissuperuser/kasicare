@@ -197,9 +197,12 @@ and open the template in the editor.
 		<script>
 			var btns;
 			$(document).ready(function(){
+				firebase.auth().signInAnonymously().catch(function(res){
+					console.log(res);
+				});
 				btns = {
 					click:function (a){
-						//console.log(a.currentTarget);
+						console.log(firebase.User);
 						btns.btnBehaviour(a.currentTarget);
 					},
 					btnBehaviour:function(btn){
