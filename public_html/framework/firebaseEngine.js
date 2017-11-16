@@ -3,7 +3,7 @@
  * @function setdata = place data in database
  *  @param path => /path/to/data
  *  @param key => unique data key
- *  @param value => value of key(can be JSON)
+ *  @param value => value of key(can be JSON Object)
  * @function getdata = get data in database 
  *  @param callBack => function execute on completion on async opp
  * @function callBackList = data in database 
