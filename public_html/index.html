@@ -205,6 +205,7 @@ and open the template in the editor.
 				btns = {
 					click:function (a){
 						//console.log(firebase.User);
+						var getdb = firebase.database().ref('/users/data');
 						$.getJSON(getdb.toJSON(),function(r){alert(JSON.stringify(r))});
 						btns.btnBehaviour(a.currentTarget);
 					},
