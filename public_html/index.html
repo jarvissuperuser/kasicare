@@ -185,24 +185,58 @@ and open the template in the editor.
       </div>
     </div>
 <script src="framework/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBhTwbxRw2jpjFHA3YwnVq3U3Vh5kscwwY",
-    authDomain: "kasicare.firebaseapp.com",
-    databaseURL: "https://kasicare.firebaseio.com",
-    projectId: "kasicare",
-    storageBucket: "",
-    messagingSenderId: "232449630041"
-  };
-  firebase.initializeApp(config);
-</script>
+
 		<script>
 			var btns;
+			var fbOp;
+			fbOp = {
+					res:null,
+					init:function(){
+						// Initialize Firebase
+						var config = {
+							apiKey: "AIzaSyBhTwbxRw2jpjFHA3YwnVq3U3Vh5kscwwY",
+							authDomain: "kasicare.firebaseapp.com",
+							databaseURL: "https://kasicare.firebaseio.com",
+							projectId: "kasicare",
+							storageBucket: "",
+							messagingSenderId: "232449630041"
+						};
+						firebase.initializeApp(config);
+					},
+					setData:function(path,key,value){
+						var dbRec = firebase.database().ref(path);
+						dbRec.child(key).set(value);
+					},
+					getData:function(path,callBack){
+						var getdb = firebase.database().ref(path);
+						getdb.once('value').then(callBack);
+					},
+					callBackList:function(s){
+						fbOp.res = [];
+						var cnt = 0;
+						s.forEach(function(child){
+							var tmp = [];
+							tmp['name'] = child.key;
+							tmp['data'] = child.val();
+							fbOp.res.push(tmp);
+						});
+					},
+					callBackSingle:function(s){
+						fbOp.res = s.val();
+					}
+				};
 			$(document).ready(function(){
-				firebase.auth().signInAnonymously().catch(function(res){
-					console.log(res);
-				});
+				fbOp.init();
+				var user = firebase.auth().currentUser;
+				
+				if (user){
+					console.log(user.uid);
+				}
+				else{
+					firebase.auth().signInAnonymously().catch(function(res){
+						console.log(res);
+					});
+				}
 				btns = {
 					getInfo:function(data){
 						alert(JSON.stringify(r));
@@ -210,8 +244,7 @@ and open the template in the editor.
 					click:function (a){
 						//console.log(firebase.User);
 						try{
-							var getdb = firebase.database().ref('/users/data');
-							$.getJSON(getdb.toJSON() +".json",btns.getInfo);
+							fbOp.getData("/users/data",fbOp.callBackList);
 							btns.btnBehaviour(a.currentTarget);
 						}catch(e){
 							alert(e.message);
