@@ -11,3 +11,20 @@ and open the template in the editor.
 .img{
 	width: 100%;
 }
+
+
+.ui-btn-standard{
+	min-width : 36vw !important;
+}
+.center-text{
+	text-align: center;
+}
+.ui-circle{
+	/*font-size: 0.7em !important;*/
+	border-radius: 50%;
+	background-color: red !important;
+	color: whitesmoke !important;
+}
+.ui-hidden{
+	display: none;
+}

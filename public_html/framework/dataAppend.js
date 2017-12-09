@@ -1,4 +1,10 @@
+/***
+ * Obj: dataHolding,
+ * Stores Static String;
+ */
+
 var dataHolding =  {
+	active_profile:{},
 	dbinit:["CREATE TABLE IF NOT EXISTS `userlist` (\
     `id` integer NOT NULL,\
     `name` VARCHAR(30),\
@@ -6,6 +12,7 @@ var dataHolding =  {
     `email` VARCHAR(70),\
     `phone` VARCHAR(15) NOT NULL,\
     `unique_id` varchar(20),\
+		`gender` char,\
     PRIMARY KEY (`id`)\
 );","CREATE TABLE IF NOT EXISTS `institution` (\
     `id` integer NOT NULL,\
@@ -103,7 +110,11 @@ var dataHolding =  {
     `desc` varchar(100),\
     `location_id` id NOT NULL,\
     PRIMARY KEY (`id`)\
-);"]
+);"],
+	q_user:["userlist","user_details","user_signatures",'relations'],
+	q_med:['user_med_history',"user_treatment"],
+	q_booking:['bookings','institution'],
+	profile_count:0
 }
 
 
