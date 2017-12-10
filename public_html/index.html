@@ -260,7 +260,7 @@ and open the template in the editor.
 		</div>
     <div id="faci" data-role="page">
       <div class="ui-content">
-        <img class="img" src="framework/images/kasi2.png" alt=""/>
+        <h2 class="ui-header">Place Booking</h2>
 				<a data-rel="back" class="ui-btn ui-btn-icon-notext ui-icon-delete ui-nodisc-icon ui-alt-icon ui-btn-right"></a>
 				<ul data-role="listview" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Search Health Facilities..." data-inset="true">
 					    <li><a href="#">Steve Biko</a></li>
@@ -278,7 +278,7 @@ and open the template in the editor.
 				<form>
 					<input data-type="search" data-rel='filterable' placeholder="Search Services" id='facs' />
 				</form>
-				<div data-role="collapsibleset" data-mini="true" data-filter='true' data-input='#facs' class="care">
+				<div data-role="collapsibleset" data-mini="true" data-filter='true' data-filter-reveal='true' data-input='#facs' class="care">
 					<div data-role="collapsible">
 						<h4><span class="title">Lister Clinic </span></h4>
 						<ul data-role="listview">
@@ -340,11 +340,6 @@ and open the template in the editor.
 						<a class="location ui-btn">Spring</a>
 						<a class="location ui-btn">Gezina</a>
 						<a class="location ui-btn">Roodeport</a>
-					</div>
-					<div data-role="collapsible">
-						<h4><span class="title">Empty Rec - </span><span class="date">00-00-0000</span></h4>
-						<p class="data ui-bar">Empty</p>
-						<a class="location ui-btn">Unknown Location</a>
 					</div>
 				</div>
 			</div>
@@ -418,6 +413,12 @@ and open the template in the editor.
 								clearInterval(cdwn);
 							});
 						}
+						if ($(btn).hasClass("ui-icon-action") && 
+										(location.hash === "#home" || location.hash===""))
+						{
+							$.mobile.changePage('#faci');
+						}
+						
 					},
 					actionFilter:function (btn){
 						return btn;
