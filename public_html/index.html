@@ -258,7 +258,7 @@ and open the template in the editor.
 				</div>
       </div>
 		</div>
-    <div id="fac" data-role="page">
+    <div id="faci" data-role="page">
       <div class="ui-content">
         <img class="img" src="framework/images/kasi2.png" alt=""/>
 				<a data-rel="back" class="ui-btn ui-btn-icon-notext ui-icon-delete ui-nodisc-icon ui-alt-icon ui-btn-right"></a>
@@ -272,6 +272,83 @@ and open the template in the editor.
 				</ul>
       </div>
     </div>
+		<div id="fac" data-role="page">
+			<div class="ui-content">
+				<h2 class="ui-header">Places & Prices</h2>
+				<form>
+					<input data-type="search" data-rel='filterable' placeholder="Search Services" id='facs' />
+				</form>
+				<div data-role="collapsibleset" data-mini="true" data-filter='true' data-input='#facs' class="care">
+					<div data-role="collapsible">
+						<h4><span class="title">Lister Clinic </span></h4>
+						<ul data-role="listview">
+							<li data-role="list-divider">SERVICES</li>
+							<li>Consultation - <span class="price">R350 - R400</span></li>
+							<li>Review - <span class="price">R150 - R200</span></li>
+							<li>Family Planning - <span class="price">R150 - R750</span></li>
+							<li>Pregnancy sonar - <span class="price">R650</span></li>
+							<li>Radiology - <span class="price">R350 - R1000</span></li>
+							<li>Pathology Tests- <span class="price">R700 - R2000</span></li>
+							<li>Observations - <span class="price">R100 - R500</span></li>
+						</ul>
+						<a class="location ui-btn">Hillbrow</a>
+						<a class="location ui-btn">Jo'burg</a>
+					</div>
+					<div data-role="collapsible">
+						<h4><span class="title">Travel Doctor </span></h4>
+						<ul data-role="listview">
+							<li data-role="list-divider">SERVICES</li>
+							<li>Dentist - <span class="price"></span></li>
+							<li>Dietician - <span class="price"></span></li>
+							<li>General Practitioners - <span class="price"></span></li>
+							<li>Laboratory - <span class="price"></span></li>
+							<li>Pharmacy - <span class="price"></span></li>
+							<li>Physiotherapist - <span class="price"></span></li>
+							<li>Radiology - <span class="price"></span></li>
+						</ul>
+					</div>
+					<div data-role="collapsible">
+						<h4><span class="title">The local c </span></h4>
+						<ul data-role="listview">
+							<li data-role="list-divider">SERVICES</li>
+							<li>diabetic care and dietary advice</li>
+							<li>blood pressure monitoring</li>
+							<li>glucose screening</li>
+							<li>Cholesterol screening</li>
+							<li>HIV screening, testing and counseling</li>
+							<li>Weight loss advice</li>
+							<li>Vitamin injections </li>
+							<li>Medical Aid health assessments	</li>
+							<li>Nebulization and inhalation</li>
+							<li>Wound care</li>
+						</ul>
+					</div>
+					<div data-role="collapsible">
+						<h4><span class="title">Netcare </span></h4>
+						<ul data-role="listview">
+							<li data-role="list-divider">SERVICES</li>
+							<li>Dietician - <span class="price"></span></li>
+							<li>Optometry - <span class="price"></span></li>
+							<li>Family Planning - <span class="price"></span></li>
+							<li>Psychology - <span class="price"></span></li>
+							<li>Radiology - <span class="price"></span></li>
+							<li>Pathology Tests- <span class="price"></span></li>
+							<li>Observations - <span class="price"></span></li>
+						</ul>
+						<a class="location ui-btn">Constantia Park</a>
+						<a class="location ui-btn">Randburg</a>
+						<a class="location ui-btn">Spring</a>
+						<a class="location ui-btn">Gezina</a>
+						<a class="location ui-btn">Roodeport</a>
+					</div>
+					<div data-role="collapsible">
+						<h4><span class="title">Empty Rec - </span><span class="date">00-00-0000</span></h4>
+						<p class="data ui-bar">Empty</p>
+						<a class="location ui-btn">Unknown Location</a>
+					</div>
+				</div>
+			</div>
+		</div>
 <script src="framework/firebase.js"></script>
 <script src="framework/firebaseEngine.js"></script>
 <script src="framework/dataAppend.js" type="text/javascript"></script>
